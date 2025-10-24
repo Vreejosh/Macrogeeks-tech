@@ -1,0 +1,1142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MacroGeeks Tech | Professional Tech Repair & IT Services</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --phthalo: #000F89;
+            --phthalo-light: #1E3A8A;
+            --phthalo-dark: #000B5E;
+            --accent: #2563EB;
+            --text: #1F2937;
+            --text-light: #6B7280;
+            --bg: #FAFBFC;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            color: var(--text);
+            line-height: 1.6;
+            background: #FFFFFF;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .header {
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            padding: 1.5rem 0;
+            border-bottom: 1px solid rgba(0, 15, 137, 0.08);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 3rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .brand {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--phthalo);
+            letter-spacing: -0.02em;
+        }
+
+        .nav {
+            display: flex;
+            gap: 3rem;
+        }
+
+        .nav-link {
+            background: none;
+            border: none;
+            color: var(--text);
+            font-size: 0.95rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: color 0.2s;
+            position: relative;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--phthalo);
+            transition: width 0.3s;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .hero {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 5rem 3rem;
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 5rem;
+            align-items: center;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: var(--phthalo);
+            line-height: 1.1;
+            margin-bottom: 1rem;
+            letter-spacing: -0.03em;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .brand-logo {
+            width: 80px;
+            height: auto;
+        }
+
+        .mission {
+            font-size: 1.25rem;
+            color: var(--text-light);
+            line-height: 1.7;
+            margin-bottom: 3rem;
+        }
+
+        .services-quick {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.25rem;
+        }
+
+        .service-quick {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 1rem;
+            background: var(--bg);
+            border-radius: 8px;
+            transition: all 0.3s;
+            border: 1px solid transparent;
+            cursor: pointer;
+        }
+
+        .service-quick:hover {
+            background: white;
+            border-color: var(--phthalo);
+            transform: translateX(4px);
+            box-shadow: 0 4px 12px rgba(0, 15, 137, 0.1);
+        }
+
+        .service-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--phthalo) 0%, var(--accent) 100%);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .service-icon svg {
+            width: 20px;
+            height: 20px;
+            stroke: white;
+            fill: none;
+        }
+
+        .service-quick span {
+            font-weight: 500;
+            color: var(--text);
+            font-size: 0.95rem;
+        }
+
+        .hero-visual {
+            height: 500px;
+            background: linear-gradient(135deg, var(--phthalo) 0%, var(--accent) 100%);
+            border-radius: 16px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 15, 137, 0.25);
+        }
+
+        .hero-visual::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, transparent 70%);
+            animation: rotate 20s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .hero-visual-content {
+            position: relative;
+            z-index: 2;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 3rem;
+        }
+
+        .visual-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            width: 100%;
+        }
+
+        .visual-item {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.75rem;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .visual-item:hover {
+            background: rgba(255, 255, 255, 0.15);
+            transform: translateY(-4px);
+        }
+
+        .visual-item svg {
+            width: 32px;
+            height: 32px;
+            stroke: white;
+            fill: none;
+        }
+
+        .visual-item span {
+            color: white;
+            font-size: 0.85rem;
+            font-weight: 500;
+            text-align: center;
+        }
+
+        .visual-item p {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.75rem;
+            text-align: center;
+        }
+
+        .info-bar {
+            background: var(--bg);
+            padding: 3rem 3rem;
+        }
+
+        .info-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1.2fr;
+            gap: 3rem;
+        }
+
+        .info-box {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            border: 1px solid rgba(0, 15, 137, 0.08);
+        }
+
+        .info-box h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--phthalo);
+            margin-bottom: 1.25rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .info-box h3 svg {
+            width: 20px;
+            height: 20px;
+            stroke: var(--phthalo);
+            fill: none;
+        }
+
+        .info-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .info-list li {
+            color: var(--text);
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .info-list li::before {
+            content: '';
+            width: 4px;
+            height: 4px;
+            background: var(--phthalo);
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        .map-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--phthalo);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 8px;
+            font-weight: 500;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-top: 1rem;
+            text-decoration: none;
+        }
+
+        .map-button:hover {
+            background: var(--phthalo-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 15, 137, 0.3);
+        }
+
+        .map-button svg {
+            width: 16px;
+            height: 16px;
+            stroke: white;
+            fill: none;
+        }
+
+        .privacy-note {
+            font-size: 0.8rem;
+            color: var(--text-light);
+            line-height: 1.6;
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(0, 15, 137, 0.08);
+        }
+
+        .section {
+            display: none;
+        }
+
+        .section.active {
+            display: block;
+        }
+
+        .services-section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 5rem 3rem;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--phthalo);
+            margin-bottom: 1rem;
+            letter-spacing: -0.02em;
+        }
+
+        .section-header p {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            border: 1px solid rgba(0, 15, 137, 0.08);
+            transition: all 0.3s;
+        }
+
+        .service-card:hover {
+            border-color: var(--phthalo);
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px rgba(0, 15, 137, 0.12);
+        }
+
+        .service-card-icon {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, var(--phthalo) 0%, var(--accent) 100%);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.25rem;
+        }
+
+        .service-card-icon svg {
+            width: 24px;
+            height: 24px;
+            stroke: white;
+            fill: none;
+        }
+
+        .service-card h3 {
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: var(--text);
+            margin-bottom: 0.75rem;
+        }
+
+        .service-card p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .contact-section {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 5rem 3rem;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .contact-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 12px;
+            border: 1px solid rgba(0, 15, 137, 0.08);
+        }
+
+        .contact-card h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--phthalo);
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .contact-card h3 svg {
+            width: 20px;
+            height: 20px;
+            stroke: var(--phthalo);
+            fill: none;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .contact-item {
+            color: var(--text);
+            font-size: 0.95rem;
+        }
+
+        .contact-item strong {
+            display: block;
+            color: var(--text-light);
+            font-size: 0.85rem;
+            font-weight: 500;
+            margin-bottom: 0.25rem;
+        }
+
+        footer {
+            background: var(--phthalo);
+            color: white;
+            padding: 3rem 3rem 2rem 3rem;
+            margin-top: 5rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 4rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 1.25rem;
+            opacity: 0.9;
+        }
+
+        .footer-section p {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+            line-height: 1.7;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .social-link {
+            width: 36px;
+            height: 36px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .social-link:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .social-link svg {
+            width: 18px;
+            height: 18px;
+            stroke: white;
+            fill: none;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 2rem;
+            text-align: center;
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        @media (max-width: 968px) {
+            .hero {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+                padding: 3rem 2rem;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .info-container {
+                grid-template-columns: 1fr;
+            }
+
+            .service-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+
+            .logo-container {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .brand-logo {
+                width: 60px;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .services-quick {
+                grid-template-columns: 1fr;
+            }
+
+            .nav {
+                gap: 1.5rem;
+            }
+
+            .header-content {
+                padding: 0 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+            <div class="brand">MacroGeeks Tech</div>
+            <nav class="nav">
+                <button class="nav-link" onclick="showSection('home')">Home</button>
+                <button class="nav-link" onclick="showSection('services')">Services</button>
+                <button class="nav-link" onclick="showSection('contact')">Contact</button>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- HOME -->
+        <section id="home" class="section active">
+            <div class="hero">
+                <div class="hero-content">
+                    <div class="logo-container">
+                        <svg class="brand-logo" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="214" y="272" width="596" height="480" rx="32" fill="#000F89"/>
+                            <rect x="254" y="312" width="516" height="400" rx="16" fill="#FFFFFF"/>
+                            <rect x="280" y="336" width="464" height="348" rx="8" fill="#000F89"/>
+                            <text x="512" y="580" font-family="Arial, sans-serif" font-size="200" font-weight="bold" fill="#FFFFFF" text-anchor="middle">MTG</text>
+                            <path d="M 350 712 L 400 760 L 624 760 L 674 712 Z" fill="#000F89"/>
+                            <rect x="450" y="760" width="124" height="40" fill="#000F89"/>
+                        </svg>
+                    </div>
+                    <h1>Tech Repair<br>Done Right</h1>
+                    <p class="mission">
+                        Your trusted technology repair partner in Richardson, TX. We fix everything from smartphones to servers with honest service and expert care. Walk in anytime during our hours—no appointment needed.
+                    </p>
+                    <div class="services-quick">
+                        <div class="service-quick" onclick="showSection('services')">
+                            <div class="service-icon">
+                                <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
+                                    <line x1="12" y1="18" x2="12.01" y2="18"></line>
+                                </svg>
+                            </div>
+                            <span>Mobile Devices</span>
+                        </div>
+                        <div class="service-quick" onclick="showSection('services')">
+                            <div class="service-icon">
+                                <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                                    <line x1="8" y1="21" x2="16" y2="21"></line>
+                                    <line x1="12" y1="17" x2="12" y2="21"></line>
+                                </svg>
+                            </div>
+                            <span>Computers</span>
+                        </div>
+                        <div class="service-quick" onclick="showSection('services')">
+                            <div class="service-icon">
+                                <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <rect x="2" y="7" width="20" height="15" rx="2" ry="2"></rect>
+                                    <polyline points="17 2 12 7 7 2"></polyline>
+                                </svg>
+                            </div>
+                            <span>Gaming Systems</span>
+                        </div>
+                        <div class="service-quick" onclick="showSection('services')">
+                            <div class="service-icon">
+                                <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <ellipse cx="12" cy="5" rx="9" ry="3"></ellipse>
+                                    <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path>
+                                    <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path>
+                                </svg>
+                            </div>
+                            <span>Data Recovery</span>
+                        </div>
+                        <div class="service-quick" onclick="showSection('services')">
+                            <div class="service-icon">
+                                <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+                                    <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+                                </svg>
+                            </div>
+                            <span>Servers</span>
+                        </div>
+                        <div class="service-quick" onclick="showSection('services')">
+                            <div class="service-icon">
+                                <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path>
+                                </svg>
+                            </div>
+                            <span>IT Services</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="hero-visual">
+                    <div class="hero-visual-content">
+                        <div class="visual-grid">
+                            <div class="visual-item" onclick="showSection('services')">
+                                <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                                </svg>
+                                <span>Secure</span>
+                                <p>Encrypted data handling</p>
+                            </div>
+                            <div class="visual-item" onclick="showSection('services')">
+                                <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <polyline points="20 6 9 17 4 12"></polyline>
+                                </svg>
+                                <span>Certified</span>
+                                <p>15+ years experience</p>
+                            </div>
+                            <div class="visual-item" onclick="showSection('services')">
+                                <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <circle cx="12" cy="12" r="10"></circle>
+                                    <polyline points="12 6 12 12 16 14"></polyline>
+                                </svg>
+                                <span>Fast</span>
+                                <p>Same-day diagnostics</p>
+                            </div>
+                            <div class="visual-item" onclick="showSection('services')">
+                                <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                                    <circle cx="9" cy="7" r="4"></circle>
+                                    <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                                    <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                                </svg>
+                                <span>Expert</span>
+                                <p>IT & repair specialist</p>
+                            </div>
+                            <div class="visual-item" onclick="showSection('services')">
+                                <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path>
+                                    <line x1="7" y1="7" x2="7.01" y2="7"></line>
+                                </svg>
+                                <span>Fair Price</span>
+                                <p>Transparent quotes</p>
+                            </div>
+                            <div class="visual-item" onclick="showSection('services')">
+                                <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+                                    <polyline points="7.5 4.21 12 6.81 16.5 4.21"></polyline>
+                                    <polyline points="7.5 19.79 7.5 14.6 3 12"></polyline>
+                                    <polyline points="21 12 16.5 14.6 16.5 19.79"></polyline>
+                                    <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+                                    <line x1="12" y1="22.08" x2="12" y2="12"></line>
+                                </svg>
+                                <span>Quality</span>
+                                <p>Premium parts used</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="info-bar">
+                <div class="info-container">
+                    <div class="info-box">
+                        <h3>
+                            <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <polyline points="12 6 12 12 16 14"></polyline>
+                            </svg>
+                            Hours
+                        </h3>
+                        <ul class="info-list">
+                            <li>Monday - Saturday: 8 AM - 8 PM</li>
+                            <li>Sunday: 10 AM - 4 PM</li>
+                        </ul>
+                    </div>
+
+                    <div class="info-box">
+                        <h3>
+                            <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                                <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                            </svg>
+                            Free Diagnostics
+                        </h3>
+                        <ul class="info-list">
+                            <li>Complete system analysis</li>
+                            <li>Available by phone or walk-in</li>
+                            <li>No obligation estimate</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="info-container" style="margin-top: 2rem;">
+                    <div class="info-box">
+                        <h3>
+                            <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M12 20h9"></path>
+                                <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path>
+                            </svg>
+                            15+ Years Experience
+                        </h3>
+                        <p class="privacy-note">
+                            Our lead technician brings over 15 years of expertise in technology repair, IT services, logistics, and sales. Serving the Richardson community since 2010 with professional service you can trust.
+                        </p>
+                    </div>
+
+                    <div class="info-box">
+                        <h3>
+                            <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                            </svg>
+                            Customer Reviews
+                        </h3>
+                        <p class="privacy-note">
+                            "They fixed my macbook very fast and I have had no issues since. Dee is a very nice and knowledgeable guy. I highly encourage you to use them for your repairs." - Leonardo Morales, 4 days ago<br><br>
+                            "I came here to get my macbook fixed due to it having liquid damage and its data recovered. I got greeted by Dee and he is a very kind and helpful person. I recommend everyone to go get there tech devices fixed here." - Samar Siddiqui, 5 days ago<br><br>
+                            "I was having issues with my gaming PC and tried everything but couldn’t get it to work but when I brought it here Dee fixed it I would recommend this place and ask for Dee" - Hilario Esquivel, 9 hours ago<br><br>
+                            "had serious water damage on my device and thought it was beyond saving, but this team completely proved me wrong. They diagnosed the issue quickly, kept me updated throughout the repair, and brought my device back to life like brand new!" - Zidane Nzobe, 11 hours ago
+                        </p>
+                    </div>
+
+                    <div class="info-box">
+                        <h3>
+                            <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                                <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                            </svg>
+                            Privacy First
+                        </h3>
+                        <p class="privacy-note">
+                            All repairs use encryption and secure handling. Only authorized technicians access your devices. 
+                            No data accessed, copied, or deleted without explicit consent.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SERVICES -->
+        <section id="services" class="section">
+            <div class="services-section">
+                <div class="section-header">
+                    <h2>What We Service</h2>
+                    <p>Comprehensive repair solutions for all your technology needs, including expert data recovery and IT services. Walk in anytime during our hours.</p>
+                </div>
+
+                <div class="service-grid">
+                    <div class="service-card">
+                        <div class="service-card-icon">
+                            <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
+                                <line x1="12" y1="18" x2="12.01" y2="18"></line>
+                            </svg>
+                        </div>
+                        <h3>Mobile Devices</h3>
+                        <p>iPhone, Samsung, Google Pixel, and all major brands. Screen replacement, battery service, water damage recovery, and charging port repair.</p>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-card-icon">
+                            <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                                <line x1="8" y1="21" x2="16" y2="21"></line>
+                                <line x1="12" y1="17" x2="12" y2="21"></line>
+                            </svg>
+                        </div>
+                        <h3>Computers</h3>
+                        <p>Desktop and laptop repair for all brands. Hardware upgrades, virus removal, diagnostics, and performance optimization.</p>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-card-icon">
+                            <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="9" cy="21" r="1"></circle>
+                                <circle cx="20" cy="21" r="1"></circle>
+                                <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                            </svg>
+                        </div>
+                        <h3>MacBooks & iMacs</h3>
+                        <p>Specialized Apple repair services. Logic board repair, screen replacement, battery service, and macOS troubleshooting.</p>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-card-icon">
+                            <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="4" y="2" width="16" height="20" rx="2" ry="2"></rect>
+                                <line x1="12" y1="18" x2="12.01" y2="18"></line>
+                            </svg>
+                        </div>
+                        <h3>Tablets</h3>
+                        <p>iPad, Surface, Android tablets. Screen digitizer replacement, charging port repair, battery service, and software fixes.</p>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-card-icon">
+                            <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="2" y="7" width="20" height="15" rx="2" ry="2"></rect>
+                                <polyline points="17 2 12 7 7 2"></polyline>
+                            </svg>
+                        </div>
+                        <h3>Gaming Systems</h3>
+                        <p>PlayStation, Xbox, Nintendo Switch. HDMI port repair, cooling system service, disc drive repair, and controller fixes.</p>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-card-icon">
+                            <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+                                <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+                            </svg>
+                        </div>
+                        <h3>Servers</h3>
+                        <p>Enterprise server maintenance and repair. RAID recovery, power supply replacement, cooling systems, and hardware diagnostics.</p>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-card-icon">
+                            <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <ellipse cx="12" cy="5" rx="9" ry="3"></ellipse>
+                                <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path>
+                                <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path>
+                            </svg>
+                        </div>
+                        <h3>Data Recovery</h3>
+                        <p>Professional data retrieval from failed hard drives, corrupted storage, damaged devices, and deleted files.</p>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-card-icon">
+                            <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                                <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                            </svg>
+                        </div>
+                        <h3>Smart Home Tech</h3>
+                        <p>Smart displays, home assistants, connected appliances. Setup, configuration, and troubleshooting services.</p>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-card-icon">
+                            <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path>
+                            </svg>
+                        </div>
+                        <h3>IT Services</h3>
+                        <p>Network setup, system optimization, security solutions, and technical support for homes and businesses.</p>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-card-icon">
+                            <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                                <polyline points="14 2 14 8 20 8"></polyline>
+                                <line x1="16" y1="13" x2="8" y2="13"></line>
+                                <line x1="16" y1="17" x2="8" y2="17"></line>
+                                <polyline points="10 9 9 9 8 9"></polyline>
+                            </svg>
+                        </div>
+                        <h3>Custom Solutions</h3>
+                        <p>Specialized equipment and unique repair needs. Tailored solutions for industrial, commercial, and residential technology.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACT -->
+        <section id="contact" class="section">
+            <div class="contact-section">
+                <div class="section-header">
+                    <h2>Get In Touch</h2>
+                    <p>We're here to help with all your tech repair needs. Walk in anytime during our hours or give us a call.</p>
+                </div>
+
+                <div class="contact-grid">
+                    <div class="contact-card">
+                        <h3>
+                            <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                                <circle cx="12" cy="10" r="3"></circle>
+                            </svg>
+                            Visit Us
+                        </h3>
+                        <div class="contact-info">
+                            <div class="contact-item">
+                                <strong>Address</strong>
+                                933 Custer Rd<br>
+                                Richardson, TX 75080
+                            </div>
+                            <a href="https://www.google.com/maps/search/?api=1&query=933+Custer+Rd+Richardson+TX+75080" target="_blank" class="map-button">
+                                <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <polygon points="3 11 22 2 13 21 11 13 3 11"></polygon>
+                                </svg>
+                                Get Directions
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="contact-card">
+                        <h3>
+                            <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                            </svg>
+                            Call or Email
+                        </h3>
+                        <div class="contact-info">
+                            <div class="contact-item">
+                                <strong>Phone</strong>
+                                <a href="tel:972-111-1111" style="color: inherit; text-decoration: none;">(972) 111-1111</a>
+                            </div>
+                            <div class="contact-item">
+                                <strong>Email</strong>
+                                <a href="mailto:macrogeekstech@gmail.com" style="color: inherit; text-decoration: none;">macrogeekstech@gmail.com</a>
+                            </div>
+                            <div class="contact-item">
+                                <strong>Response Time</strong>
+                                Within 24 hours
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="contact-card">
+                        <h3>
+                            <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <polyline points="12 6 12 12 16 14"></polyline>
+                            </svg>
+                            Hours
+                        </h3>
+                        <div class="contact-info">
+                            <div class="contact-item">
+                                <strong>Monday - Saturday</strong>
+                                8:00 AM - 8:00 PM
+                            </div>
+                            <div class="contact-item">
+                                <strong>Sunday</strong>
+                                10:00 AM - 4:00 PM
+                            </div>
+                            <div class="contact-item">
+                                <strong>Walk-ins Welcome</strong>
+                                No appointment needed
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="contact-card">
+                        <h3>
+                            <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                                <polyline points="22,6 12,13 2,6"></polyline>
+                            </svg>
+                            Free Diagnostics
+                        </h3>
+                        <div class="contact-info">
+                            <div class="contact-item">
+                                <strong>By Phone</strong>
+                                Call for remote troubleshooting
+                            </div>
+                            <div class="contact-item">
+                                <strong>Walk-In</strong>
+                                Complete system analysis
+                            </div>
+                            <div class="contact-item">
+                                <strong>No Obligation</strong>
+                                Free estimate on all repairs
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>About MacroGeeks Tech</h4>
+                <p>Expert tech repair and IT services since 2010. Our lead technician brings over 15 years of experience in repair, IT services, logistics, and sales. Serving Richardson with honest, professional service you can trust.</p>
+                <div class="social-links">
+                    <a href="https://www.facebook.com/computerservicedallas" target="_blank" class="social-link" aria-label="Facebook">
+                        <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <div class="footer-links">
+                    <a href="#" onclick="showSection('home'); return false;">Home</a>
+                    <a href="#" onclick="showSection('services'); return false;">Services</a>
+                    <a href="#" onclick="showSection('contact'); return false;">Contact</a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h4>Contact Info</h4>
+                <div class="footer-links">
+                    <a href="tel:972-111-1111">(972) 111-1111</a>
+                    <a href="mailto:macrogeekstech@gmail.com">macrogeekstech@gmail.com</a>
+                    <p>933 Custer Rd<br>Richardson, TX 75080</p>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2025 MacroGeeks Tech. All rights reserved.
+        </div>
+    </footer>
+
+    <script>
+        function showSection(id) {
+            document.querySelectorAll('.section').forEach(function(section) {
+                section.classList.remove('active');
+            });
+            document.getElementById(id).classList.add('active');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>
